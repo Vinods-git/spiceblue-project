@@ -1,0 +1,32 @@
+h1,
+p {
+  font-family: Lato;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid black;
+}
+.sidebar {
+  position: fixed;
+  z-index: 1;
+  width: 200px;
+  background-color: #232f3e;
+  height: 100vh;
+}
+.container {
+  margin-left: 200px;
+}
+.card {
+  margin: 75px 25px;
+  width: 18rem;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
