@@ -22,9 +22,44 @@ p {
 
 .card {
   margin: 75px 200px;
-  width: 18rem;
+  width: 22rem;
 }
 .card-header {
   display: flex;
   justify-content: space-between;
+}
+label {
+  color: gray;
+  text-decoration: none;
+}
+.add-task-container {
+  background-color: #d9edf7;
+}
+.add-task-container div {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.add-task-container div div {
+  margin-top: 5px;
+}
+.label {
+  font-size: 12px;
+}
+input {
+  border: 0;
+  width: 20rem;
+  margin-right: 10px;
+}
+.date-time {
+  display: flex;
+}
+i {
+  margin-right: 5px;
+}
+.date-picker {
+  width: 100px;
+}
+.time-picker {
+  width: 30px;
+  height: 30px;
 }

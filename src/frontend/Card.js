@@ -6,13 +6,13 @@ const Card = props => {
     <Router>
       <div class="card-header">
         <b>
-          TASKS <span>{0}</span>
+          TASKS <label>{0}</label>
         </b>
         <Link className="add-task-symbol" to="/addTask">
-          +
+          <label> +</label>
         </Link>
       </div>
-      <Route exact path="/addTask" render={AddTask} />
+      <Route exact path="/addTask" render={() => <AddTask />} />
     </Router>
   );
 };
