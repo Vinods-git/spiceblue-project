@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
+import get_Ids from './action';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch, useSelector } from 'react-redux';
 import 'font-awesome/css/font-awesome.min.css';
@@ -9,12 +10,16 @@ const AddTask = props => {
   const [startDate, setStartDate] = useState(new Date());
   const [value, onChange] = useState('10:00');
   const state = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  useEffect(async () => {
+    dispatch(get_Ids());
+  }, []);
 
   return (
     <div className="add-task-container">
       <div className="elements-in-card">
         <div className="task-description">
-          {console.log(state.Value)}
           <div>
             <label className="label" htmlFor="task-description">
               Task Description
