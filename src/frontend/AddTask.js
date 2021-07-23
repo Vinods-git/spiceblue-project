@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import DatePicker from 'react-datepicker';
 import get_Ids from './action';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,15 +9,26 @@ import TimePicker from 'react-time-picker';
 
 const AddTask = props => {
   const [startDate, setStartDate] = useState(new Date());
-  const [value, onChange] = useState('10:00');
+  const [time, setTime] = useState('10:00');
+  const [input, setInput] = useState('');
   const state = useSelector(state => state);
   const dispatch = useDispatch();
+  const { loading, ids } = state;
 
   useEffect(async () => {
     dispatch(get_Ids());
-    console.log(stat);
-    
-  }, [state]);
+  }, []);
+
+  const submitHandler = e => {
+    const task = {
+      assigned_user: ids[0],
+      task_date: startDate,
+      task_time: time,
+      is_completed: 0,
+      time_zone: 5,
+      task_msg: input
+    };
+  };
 
   return (
     <div className="add-task-container">
@@ -28,7 +40,11 @@ const AddTask = props => {
             </label>
           </div>
           <div>
-            <input type="text" />
+            <input
+              type="text"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+            />
           </div>
         </div>
         <div className="date-time">
@@ -59,12 +75,15 @@ const AddTask = props => {
                 format={'hh:mm:ss'}
                 closeClock={false}
                 className="time-picker"
-                onChange={onChange}
-                value={value}
+                onChange={setTime}
+                value={time}
               />
             </div>
           </div>
         </div>
+        <select>{ids?.map(id => <option>{id}</option>)}</select>
+        <button>Cancel</button>
+        <button onClick={submitHandler}>Save</button>
       </div>
     </div>
   );

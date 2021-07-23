@@ -3,7 +3,6 @@ const get_Ids = () => async dispatch => {
   try {
     dispatch({ type: 'GET_IDS_REQUEST' });
     const data = await getId();
-    console.log(data);
     dispatch({ type: 'GET_IDS_SUCCESS', payload: data });
   } catch (error) {
     console.log(error);

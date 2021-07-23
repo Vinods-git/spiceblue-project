@@ -4,7 +4,7 @@ import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 const Card = props => {
   return (
     <Router>
-      <div class="card-header">
+      <div className="card-header">
         <b>
           TASKS <label>{0}</label>
         </b>

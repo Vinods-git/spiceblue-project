@@ -63,3 +63,9 @@ i {
   width: 30px;
   height: 30px;
 }
+
+select {
+  border: 0;
+  width: 20rem;
+  margin-right: 10px;
+}

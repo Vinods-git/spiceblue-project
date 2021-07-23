@@ -17,6 +17,8 @@ const getId = async () => {
   });
   token = data.results.token;
   c_id = data.results.company_id;
+  // console.log(c_id);
+  
 
   var { data } = await axios({
     method: 'get',
@@ -27,10 +29,13 @@ const getId = async () => {
       'Content-Type': 'application/json'
     }
   });
+  // console.log(data);
+
   const ids = [];
   var arr = data.results.company_datas.filter(item => item.status);
+  // console.log(arr);
+
   for (let i = 0; i < arr.length; i++) {
-    
     ids.push(arr[i].user_id);
   }
 

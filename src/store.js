@@ -4,7 +4,7 @@ import reducer from './frontend/reducer';
 
 const composeEnhacer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const initialState = {};
+const initialState = { key: 'value' };
 
 const store = createStore(
   reducer,
