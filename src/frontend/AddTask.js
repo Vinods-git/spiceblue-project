@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import DatePicker from 'react-datepicker';
-import get_Ids from './action';
+import { get_Ids, add_Task } from './action';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch, useSelector } from 'react-redux';
 import 'font-awesome/css/font-awesome.min.css';
@@ -28,6 +30,20 @@ const AddTask = props => {
       time_zone: 5,
       task_msg: input
     };
+    // dispatch(add_Task(task));
+    axios({
+      method: 'post',
+      url:
+        'https://stage.api.sloovi.com/task/lead_0a44acf4b9e94fbab7f865c42436d409?company_id=company_44a3f04d60ac451e86a22d26d15411a0',
+      data: task,
+      headers: {
+        Authorization:
+          'Bearer ' +
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjcwMzA3NjYsIm5iZiI6MTYyNzAzMDc2NiwianRpIjoiMDI1OTYzZjQtZjU3MC00NzMwLThjYTktMGQ2YTU5NzY4MjY0IiwiaWRlbnRpdHkiOnsibmFtZSI6Ik1haGkgTVNEIENTSyBDYXB0YWluIiwiZW1haWwiOiJnb29kQHRlc3QzLmNvbSIsInVzZXJfaWQiOiJ1c2VyXzQxYzFkNDg1NjRhODQzNWQ4MTU2NDM5OTZkOWEzODhmIiwiaWNvbiI6Imh0dHA6Ly93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci9mZDE3ZDIwNjUwYzk5NTk0YWVmNmQxMjVhMjU5ODdlYT9kZWZhdWx0PWh0dHBzJTNBJTJGJTJGczMuc2xvb3ZpLmNvbSUyRmF2YXRhci1kZWZhdWx0LWljb24ucG5nIiwiYnlfZGVmYXVsdCI6Im91dHJlYWNoIn0sImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.t6jw3M3Gv4BgCTvRPQERcCqOItiN7t478YX4tjiEiv8',
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(res => console.log({ data }));
   };
 
   return (

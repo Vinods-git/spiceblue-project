@@ -16,11 +16,9 @@ export default function App() {
       <aside className="sidebar" />
       <div className="navbar" />
       <div className="container">
-        
-        
-        <div class="card">
+        <div className="card">
           <Card />
-          <ul class="list-group list-group-flush" />
+          <ul className="list-group list-group-flush" />
         </div>
       </div>
     </>
