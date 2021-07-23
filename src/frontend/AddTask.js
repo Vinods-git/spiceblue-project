@@ -14,7 +14,9 @@ const AddTask = props => {
 
   useEffect(async () => {
     dispatch(get_Ids());
-  }, []);
+    console.log(stat);
+    
+  }, [state]);
 
   return (
     <div className="add-task-container">
