@@ -1,8 +1,10 @@
-import { getId, addTask } from './httpCalls';
-const get_Ids = () => async dispatch => {
+import { getUsers, addTask } from './httpCalls';
+const get_Users = () => async dispatch => {
   try {
     dispatch({ type: 'GET_IDS_REQUEST' });
-    const data = await getId();
+    const data = await getUsers();
+    console.log(data);
+
     dispatch({ type: 'GET_IDS_SUCCESS', payload: data });
   } catch (error) {
     console.log(error);
@@ -12,11 +14,12 @@ const get_Ids = () => async dispatch => {
 };
 const add_Task = async task => {
   try {
-    await addTask(task);
-    dispatch({ type: 'ADDED_SUCCESSFULLY' });
+    dispatch({ type: 'ADD_REQUEST' });
+    const data = await addTask();
+    dispatch({ type: 'ADDED_SUCCESSFULLY',payload:data });
   } catch (error) {
     dispatch({ type: 'ADD_FAILED' });
   }
 };
 
-export { get_Ids, add_Task };
+export { get_Users, add_Task };
