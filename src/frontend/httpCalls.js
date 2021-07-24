@@ -49,7 +49,7 @@ const getUsers = async () => {
   return users;
 };
 const addTask = async task => {
-  const { data } = await axios({
+  const data = await axios({
     method: 'post',
     url:
       ' https://stage.api.sloovi.com/task/lead_c1de2c7b9ab94cb9abad131b7294cd8' +
@@ -64,6 +64,7 @@ const addTask = async task => {
     }
   });
   console.log(data);
+  return data;
 };
 
 export { getUsers, addTask };

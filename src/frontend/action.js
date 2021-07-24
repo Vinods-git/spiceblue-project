@@ -8,15 +8,14 @@ const get_Users = () => async dispatch => {
     dispatch({ type: 'GET_IDS_SUCCESS', payload: data });
   } catch (error) {
     console.log(error);
-
     dispatch({ type: 'GET_IDS_FAILED', payload: error.message });
   }
 };
-const add_Task = async task => {
+const add_Task = (task)=> async dispatch => {
   try {
     dispatch({ type: 'ADD_REQUEST' });
-    const data = await addTask();
-    dispatch({ type: 'ADDED_SUCCESSFULLY',payload:data });
+    var data = await addTask(task);
+    dispatch({ type: 'ADDED_SUCCESSFULLY', payload: data });
   } catch (error) {
     dispatch({ type: 'ADD_FAILED' });
   }

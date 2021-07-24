@@ -32,40 +32,35 @@ label {
   color: gray;
   text-decoration: none;
 }
-.add-task-container {
+.add-task-symbol {
+  cursor: pointer;
+}
+.task-container {
   background-color: #d9edf7;
-}
-.add-task-container div {
-  margin-top: 5px;
-  margin-left: 5px;
-}
-.add-task-container div div {
-  margin-top: 5px;
-}
-.label {
-  font-size: 12px;
-}
-input {
-  border: 0;
-  width: 20rem;
-  margin-right: 10px;
-}
-.date-time {
-  display: flex;
-}
-i {
-  margin-right: 5px;
-}
-.date-picker {
-  width: 100px;
-}
-.time-picker {
-  width: 30px;
-  height: 30px;
+  padding: 20px;
 }
 
-select {
-  border: 0;
-  width: 20rem;
-  margin-right: 10px;
+.date {
+  width: 9rem;
+  background-color: white;
+}
+.time {
+  width: 9rem;
+
+  background-color: white;
+}
+.input {
+  background-color: white;
+}
+.button-box {
+  display: flex;
+  justify-self: flex-end;
+}
+.makeStyles-root-5 .MuiTextField-root {
+  width: 100%;
+  margin: 0;
+}
+.makeStyles-formControl-2 {
+  /* margin: 8px; */
+  width: 100%;
 }

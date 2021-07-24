@@ -1,3 +1,31 @@
+<MuiPickersUtilsProvider utils={DateFnsUtils}>
+  <Grid container justifyContent="space-around">
+    <KeyboardDatePicker
+      disableToolbar
+      variant="inline"
+      format="MM/dd/yyyy"
+      margin="normal"
+      id="date-picker-inline"
+      label="Date picker inline"
+      value={selectedDate}
+      onChange={handleDateChange}
+      KeyboardButtonProps={{
+        'aria-label': 'change date'
+      }}
+    />
+    <KeyboardTimePicker
+      margin="normal"
+      id="time-picker"
+      label="Time picker"
+      value={selectedDate}
+      onChange={handleDateChange}
+      KeyboardButtonProps={{
+        'aria-label': 'change time'
+      }}
+    />
+  </Grid>
+</MuiPickersUtilsProvider>;
+
 let token;
 // useEffect(async () => {
 //   await axios({

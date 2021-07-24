@@ -8,8 +8,8 @@ const Card = props => {
         <b>
           TASKS <label>{0}</label>
         </b>
-        <Link className="add-task-symbol" to="/addTask">
-          <label> +</label>
+        <Link to="/addTask">
+          <label className="add-task-symbol"> +</label>
         </Link>
       </div>
       <Route exact path="/addTask" render={() => <AddTask />} />
