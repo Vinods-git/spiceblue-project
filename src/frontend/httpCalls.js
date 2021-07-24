@@ -49,7 +49,7 @@ const getUsers = async () => {
   return users;
 };
 const addTask = async task => {
-  const data = await axios({
+  const { data } = await axios({
     method: 'post',
     url:
       ' https://stage.api.sloovi.com/task/lead_c1de2c7b9ab94cb9abad131b7294cd8' +
@@ -63,11 +63,29 @@ const addTask = async task => {
       'Content-Type': 'application/json'
     }
   });
+  // console.log(data);
+  return data;
+};
+const getAllTasks = async task => {
+  const { data } = await axios({
+    method: 'post',
+    url:
+      ' https://stage.api.sloovi.com/task/lead_c1de2c7b9ab94cb9abad131b7294cd8' +
+      ' b?company_id=company_0336d06ff0ec4b3b9306ddc288482663',
+    data: task,
+    headers: {
+      Authorization:
+        'Bearer ' +
+        ' eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjcxMDkyMjQsIm5iZiI6MTYyNzEwOTIyNCwianRpIjoiMWQ4NDhmMWYtNjYwYS00OGUwLTgxNDUtMTVhYmY2NjNmYmRiIiwiaWRlbnRpdHkiOnsibmFtZSI6Ik1haGkgTVNEIENTSyBDYXB0YWluIiwiZW1haWwiOiJnb29kQHRlc3QzLmNvbSIsInVzZXJfaWQiOiJ1c2VyXzQxYzFkNDg1NjRhODQzNWQ4MTU2NDM5OTZkOWEzODhmIiwiaWNvbiI6Imh0dHA6Ly93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci9mZDE3ZDIwNjUwYzk5NTk0YWVmNmQxMjVhMjU5ODdlYT9kZWZhdWx0PWh0dHBzJTNBJTJGJTJGczMuc2xvb3ZpLmNvbSUyRmF2YXRhci1kZWZhdWx0LWljb24ucG5nIiwiYnlfZGVmYXVsdCI6Im91dHJlYWNoIn0sImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.DtqEGj4BWjulPwCHFL0fUmkgcLbRwfUGsXzJ7q-0Wgw',
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  });
   console.log(data);
   return data;
 };
 
-export { getUsers, addTask };
+export { getUsers, getAllTasks, addTask };
 // .then(res => {
 //   token = res.data.results.token;
 //   c_id = res.data.results.company_id;

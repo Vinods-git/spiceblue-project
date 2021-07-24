@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { get_Users, add_Task } from './action';
-import MaterialUIPickers from './MaterialUIPickers';
-import Select from './Select';
-import Input from './Input';
-import Button from './Button';
+import DateTime from './Inputs/DateTime';
+import {Link} from 'react-router-dom';
+import Select from './Inputs/Select';
+import Input from './Inputs/Input';
+import Button from './Inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 import React from 'react';
+import { alpha } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -17,9 +19,9 @@ import {
 } from '@material-ui/pickers';
 
 const AddTask = props => {
-  const [startDate, setStartDate] = useState(new Date('2014-08-18T21:11:54'));
-  const [time, setTime] = useState('10:00:00');
+  const [startDate, setStartDate] = useState(new Date());
   const [input, setInput] = useState('');
+  const [id, setId] = useState('');
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   const { loading, users } = state;
@@ -27,10 +29,6 @@ const AddTask = props => {
   useEffect(async () => {
     dispatch(get_Users());
   }, []);
-
-  const handleChange = event => {
-    setId(event.target.value);
-  };
 
   function formatDate(date) {
     var d = new Date(date),
@@ -53,18 +51,18 @@ const AddTask = props => {
   }
 
   const submitHandler = e => {
-    console.log(formatDate(startDate.toString()));
-    console.log(time);
+    // console.log(startDate.toString());
+    // console.log(formatTime(startDate.toString().slice(17, 24)));
 
     const task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
       task_date: formatDate(startDate.toString()),
-      task_time: time,
+      task_time: formatTime(startDate.toString().slice(17, 24)),
       is_completed: 0,
-      time_zone: 5,
+      time_zone: 530,
       task_msg: input
     };
-    console.log(task);
+    // console.log(task);
 
     dispatch(add_Task(task));
   };
@@ -80,15 +78,19 @@ const AddTask = props => {
     <div className="task-container">
       <div className="elements-in-card">
         <div className="task-description">
-          <Input />
+          <Input input={input} setInput={setInput} />
         </div>
         <div className="date-time">
-          <MaterialUIPickers />
+          <DateTime startDate={startDate} setStartDate={setStartDate} />
         </div>
-        <Select users={users} />
+        <Select users={users} id={id} setId={setId} />
         <div className="button-box">
-          <Button  value={'Cancel'} />
-          <Button color='primary' value={'Save'} />
+        <Link to='/getAllTasks'><Button value={'Cancel'} /></Link>
+
+          
+          <div className onClick={submitHandler}>
+            <Button color="primary" value={'Save'} />
+          </div>
         </div>
       </div>
     </div>

@@ -11,11 +11,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FormPropsTextFields() {
+export default function FormPropsTextFields(props) {
   const classes = useStyles();
-
+  const { input, setInput } = props;
   return (
     <TextField
+      value={input}
+      onChange={e => setInput(e.target.value)}
       fullWidth
       className="input"
       id="standard-required"

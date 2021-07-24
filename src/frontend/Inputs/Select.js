@@ -18,22 +18,21 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleSelect(props) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Assign User</InputLabel>
-        <Select labelId="demo-simple-select-label" 
-        className='select'
-        id="demo-simple-select">
-          {props.users?.map(user => (
-            <option key={(user.first, user.last)}>
-              {user.first} {user.last}
-            </option>
-          ))}
-        </Select>
-      </FormControl>
+      <Select
+        className="select"
+        labelId="demo-simple-select-label"
+        className="select"
+        id="demo-simple-select"
+        label="Assign User"
+        value=""
+      >
+        {props.users?.map(user => (
+          <MenuItem key={user.first}>{user.first}</MenuItem>
+        ))}
+      </Select>
     </div>
   );
 }
