@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { get_Users, add_Task } from './action';
 import DateTime from './Inputs/DateTime';
-import {Link} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Select from './Inputs/Select';
 import Input from './Inputs/Input';
 import Button from './Inputs/Button';
@@ -25,6 +25,8 @@ const AddTask = props => {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   const { loading, users } = state;
+
+  const history = useHistory();
 
   useEffect(async () => {
     dispatch(get_Users());
@@ -65,6 +67,7 @@ const AddTask = props => {
     // console.log(task);
 
     dispatch(add_Task(task));
+    history.push('/');
   };
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')
@@ -85,9 +88,9 @@ const AddTask = props => {
         </div>
         <Select users={users} id={id} setId={setId} />
         <div className="button-box">
-        <Link to='/getAllTasks'><Button value={'Cancel'} /></Link>
-
-          
+          <Link to="/">
+            <Button value={'Cancel'} />
+          </Link>
           <div className onClick={submitHandler}>
             <Button color="primary" value={'Save'} />
           </div>

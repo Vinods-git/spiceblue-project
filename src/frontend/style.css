@@ -12,6 +12,7 @@ p {
   height: 50px;
   border-bottom: 1px solid black;
 }
+
 .sidebar {
   position: fixed;
   z-index: 1;
@@ -19,7 +20,9 @@ p {
   background-color: #232f3e;
   height: 100vh;
 }
-
+.task-list {
+  list-style-type: none;
+}
 .card {
   margin: 75px 200px;
   width: 22rem;
