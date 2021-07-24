@@ -54,7 +54,7 @@ label {
 }
 .button-box {
   display: flex;
-  justify-self: flex-end;
+  justify-content: flex-end;
 }
 .makeStyles-root-5 .MuiTextField-root {
   width: 100%;

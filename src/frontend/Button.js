@@ -15,7 +15,9 @@ export default function ContainedButtons(props) {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained">{props.value}</Button>
+      <Button color={props.color} variant="contained">
+        {props.value}
+      </Button>
     </div>
   );
 }

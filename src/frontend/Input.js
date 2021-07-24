@@ -15,16 +15,11 @@ export default function FormPropsTextFields() {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <div>
-        <TextField
-          fullWidth={true}
-          className="input"
-          id="standard-required"
-          label="Description"
-          defaultValue="Hello World"
-        />
-      </div>
-    </form>
+    <TextField
+      fullWidth
+      className="input"
+      id="standard-required"
+      label="Description"
+    />
   );
 }

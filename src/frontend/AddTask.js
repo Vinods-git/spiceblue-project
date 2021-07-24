@@ -87,8 +87,8 @@ const AddTask = props => {
         </div>
         <Select users={users} />
         <div className="button-box">
-          <Button value={'Cancel'} />
-          <Button value={'Save'} />
+          <Button  value={'Cancel'} />
+          <Button color='primary' value={'Save'} />
         </div>
       </div>
     </div>
