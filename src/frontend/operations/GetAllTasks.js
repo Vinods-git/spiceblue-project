@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Task from './Task';
-import axios from 'axios';
-import { get_All_Tasks, delete_Task } from './action';
+import Task from '../components/Task';
+import { get_All_Tasks, delete_Task } from '../action';
 import { Link, useHistory } from 'react-router-dom';
 
 const GetAllTasks = props => {

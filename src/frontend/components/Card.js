@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import AddTask from './AddTask';
-import EditTask from './EditTask';
-import ViewTask from './ViewTask';
-import Alert from './Alert';
-import GetAllTasks from './GetAllTasks';
+import AddTask from '../operations/AddTask';
+import EditTask from '../operations/EditTask';
+import ViewTask from '../operations/ViewTask';
+import GetAllTasks from '../operations/GetAllTasks';
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 
 const Card = props => {
   const state = useSelector(state => state);
-  const [length, setLength] = useState(0);
-  const [flag, setFlag] = useState(0);
 
   return (
     <Router>

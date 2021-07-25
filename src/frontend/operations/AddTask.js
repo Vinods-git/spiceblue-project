@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { get_Users, add_Task } from './action';
-import DateTime from './Inputs/DateTime';
+import DateTime from './inputs/DateTime';
 import { Link, useHistory } from 'react-router-dom';
-import Select from './Inputs/Select';
-import Input from './Inputs/Input';
-import Button from './Inputs/Button';
+import Select from './inputs/Select';
+import Input from './inputs/Input';
+import Button from './inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 
 import React from 'react';
-import { alpha } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker
-} from '@material-ui/pickers';
 
 const AddTask = props => {
   const [startDate, setStartDate] = useState(new Date());
@@ -25,8 +16,7 @@ const AddTask = props => {
   const [id, setId] = useState('');
   const state = useSelector(state => state);
   const dispatch = useDispatch();
-  const { loading, users } = state;
-  var count = 0;
+  const { users } = state;
   const history = useHistory();
 
   useEffect(async () => {
@@ -101,7 +91,6 @@ const AddTask = props => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

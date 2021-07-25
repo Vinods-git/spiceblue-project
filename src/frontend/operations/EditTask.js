@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { get_Users, edit_Task } from './action';
-import DateTime from './Inputs/DateTime';
+import DateTime from './inputs/DateTime';
 import { Link, useHistory } from 'react-router-dom';
-import Select from './Inputs/Select';
-import Input from './Inputs/Input';
-import Button from './Inputs/Button';
+import Select from './inputs/Select';
+import Input from './inputs/Input';
+import Button from './inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 import React from 'react';

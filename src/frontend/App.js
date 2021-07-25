@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
-import DatePicker from 'react-datepicker';
-
+import React from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-import './style.css';
+import './styles/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from './Card';
+import Card from './components/Card';
 
 export default function App() {
-  const [startDate, setStartDate] = useState(new Date());
-
   return (
     <>
       <aside className="sidebar" />
