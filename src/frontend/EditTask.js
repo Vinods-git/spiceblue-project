@@ -87,7 +87,7 @@ const AddTask = props => {
         <Select users={users} id={id} setId={setId} />
 
         <div className="button-box">
-          <Link className='back' to="/">
+          <Link className="back" to="/">
             <Button value={'Back'} />
           </Link>
           <div

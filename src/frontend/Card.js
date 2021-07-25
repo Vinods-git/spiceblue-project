@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import AddTask from './AddTask';
+import EditTask from './EditTask';
 import GetAllTasks from './GetAllTasks';
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -17,8 +18,9 @@ const Card = props => {
         </Link>
       </div>
 
-      <Route exact path="/" render={() => <GetAllTasks />} />
+      <Route exact path="/" component={() => <GetAllTasks />} />
       <Route exact path="/addTask" render={() => <AddTask />} />
+      <Route exact path="/editTask" render={() => <EditTask />} />
     </Router>
   );
 };

@@ -31,6 +31,9 @@ p {
   display: flex;
   justify-content: space-between;
 }
+.back {
+  text-decoration: none;
+}
 label {
   color: gray;
   text-decoration: none;

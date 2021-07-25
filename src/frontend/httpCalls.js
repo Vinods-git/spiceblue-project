@@ -63,7 +63,9 @@ const addTask = async task => {
       'Content-Type': 'application/json'
     }
   });
-  // console.log(data);
+  
+
+  return task;
 };
 const deleteTask = async id => {
   axios({

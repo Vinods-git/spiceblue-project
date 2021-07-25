@@ -7,15 +7,14 @@ const reducer = (state = {}, action) => {
     case 'GET_IDS_FAILED':
       return { loading: false, error: action.payload };
     case 'ADD_REQUEST':
-      return { ...state, loading: true };
+      return { loading: true };
     case 'ADDED_SUCCESSFULLY':
       return {
         ...state,
-        loading: false,
-        tasks: [...state.tasks, action.payload]
+        loading: false
       };
     case 'ADDING_FAILED':
-      return { tasks: [...state.tasks], loading: false };
+      return { ...state, loading: false };
     case 'GET_ALL_TASKS_REQUEST':
       return { loading: true };
     case 'GET_ALL_TASKS_SUCCESS':

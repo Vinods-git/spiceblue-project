@@ -25,11 +25,12 @@ const get_All_Tasks = () => async dispatch => {
 const add_Task = task => async dispatch => {
   try {
     dispatch({ type: 'ADD_REQUEST' });
-    await addTask(task);
-    // console.log(data);
-    dispatch({ type: 'ADDED_SUCCESSFULLY', payload: task });
+    const data = await addTask(task);
+    dispatch({ type: 'ADDED_SUCCESSFULLY', payload: data });
   } catch (error) {
-    dispatch({ type: 'ADD_FAILED', payload: error });
+    console.log(error);
+
+    dispatch({ type: 'ADDING_FAILED', payload: error });
   }
 };
 const delete_Task = id => async dispatch => {
