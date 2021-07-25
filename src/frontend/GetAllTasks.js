@@ -1,11 +1,27 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Task from './Task';
-import { get_All_Tasks } from './action';
+import axios from 'axios';
+import { get_All_Tasks, delete_Task } from './action';
+import { Link, useHistory } from 'react-router-dom';
+
 const GetAllTasks = props => {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   const { loading, tasks, error } = state;
+  const history = useHistory();
+  const editHandler = id => {
+    console.log('edit');
+  };
+  const deleteHandler = id => {
+    console.log(id);
+    dispatch(delete_Task(id));
+    dispatch(get_All_Tasks());
+    history.push('/');
+  };
+  const completeTaskHandler = id => {
+    console.log(id);
+  };
 
   useEffect(async () => {
     dispatch(get_All_Tasks());
@@ -15,11 +31,15 @@ const GetAllTasks = props => {
       {loading ? (
         'Loading'
       ) : (
-        <ul className='task-list'>
+        <ul className="task-list">
           {tasks?.map(task => (
-            
-              <Task task_date={task.task_date}  task_msg={task.task_msg}/>
-            
+            <Task
+              key={task.id}
+              task={task}
+              editHandler={editHandler}
+              deleteHandler={deleteHandler}
+              completeTaskHandler={completeTaskHandler}
+            />
           ))}
         </ul>
       )}

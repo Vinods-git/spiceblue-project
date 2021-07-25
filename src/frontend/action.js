@@ -15,7 +15,7 @@ const get_All_Tasks = () => async dispatch => {
   try {
     dispatch({ type: 'GET_ALL_TASKS_REQUEST' });
     const results = await getAllTasks();
-    
+
     dispatch({ type: 'GET_ALL_TASKS_SUCCESS', payload: results });
   } catch (error) {
     console.log(error);
@@ -33,5 +33,15 @@ const add_Task = task => async dispatch => {
     dispatch({ type: 'ADD_FAILED', payload: error });
   }
 };
+const delete_Task = id => async dispatch => {
+  try {
+    dispatch({ type: 'DELETE_TASK_REQUEST' });
+    var status = await deleteTask(id);
+    console.log(data);
+    dispatch({ type: 'DELETE_TASK_SUCCESS', payload: data.status });
+  } catch (error) {
+    dispatch({ type: 'DELETE_TASK_FAILED', payload: error });
+  }
+};
 
-export { get_Users, add_Task, get_All_Tasks };
+export { get_Users, add_Task, get_All_Tasks, update_Task, delete_Task };

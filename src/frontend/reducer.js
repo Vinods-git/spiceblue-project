@@ -18,6 +18,13 @@ const reducer = (state = {}, action) => {
       return { loading: false, tasks: action.payload };
     case 'GET_ALL_TASKS_FAILED':
       return { loading: false, error: action.payload };
+      case 'DELETE_TASK_REQUEST':
+        return {...state, loading: true };
+      case 'DELETE_TASK_SUCCESS':
+        return { loading: false, tasks: action.payload };
+      case 'DELETE_TASK_FAILED':
+        return { loading: false, error: action.payload };
+      DELETE_REQUEST
 
     default:
       return state;

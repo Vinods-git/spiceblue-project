@@ -20,9 +20,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Task(props) {
-  
   const classes = useStyles();
+  const { editHandler, deleteHandler, completeTaskHandler } = props;
 
+  const { task_msg, task_date, id } = props.task;
   return (
     <>
       <ListItem className="list">
@@ -31,10 +32,10 @@ export default function Task(props) {
             <AccountCircleIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={props.task_msg} secondary={props.task_date} />
-        <EditIcon />
-        <DoneRoundedIcon />
-        <DeleteRoundedIcon />
+        <ListItemText primary={task_msg} secondary={task_date} />
+        <EditIcon onClick={() => editHandler(id)} />
+        <DoneRoundedIcon onClick={() => completeTaskHandler(id)} />
+        <DeleteRoundedIcon onClick={() => deleteHandler(id)} />
       </ListItem>
       <Divider variant="inset" component="li" />
     </>
