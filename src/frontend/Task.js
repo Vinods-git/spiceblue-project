@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -35,8 +34,9 @@ export default function Task(props) {
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary={task_msg} secondary={task_date} />
-        <Link to="/editTask">
-          <EditIcon onClick={() => editHandler(id)} />
+        <Link to={{pathname:"/editTask",
+      task:props.task}} >
+          <EditIcon />
         </Link>
 
         <DoneRoundedIcon onClick={() => completeTaskHandler(id)} />

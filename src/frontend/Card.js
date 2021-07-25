@@ -18,9 +18,9 @@ const Card = props => {
         </Link>
       </div>
 
-      <Route exact path="/" component={() => <GetAllTasks />} />
+      <Route exact path="/" component={GetAllTasks} />
       <Route exact path="/addTask" render={() => <AddTask />} />
-      <Route exact path="/editTask" render={() => <EditTask />} />
+      <Route exact path="/editTask" component={EditTask} />
     </Router>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { get_Users, add_Task } from './action';
+import { get_Users, edit_Task } from './action';
 import DateTime from './Inputs/DateTime';
 import { Link, useHistory } from 'react-router-dom';
 import Select from './Inputs/Select';
@@ -9,18 +9,11 @@ import Button from './Inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 import React from 'react';
-import { alpha } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker
-} from '@material-ui/pickers';
 
-const AddTask = props => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [input, setInput] = useState('');
+const EditTask = props => {
+  const { task } = props.location;
+  const [startDate, setStartDate] = useState(task.task_date_time_in_utc);
+  const [input, setInput] = useState(task.task_msg);
   const [id, setId] = useState('');
   const state = useSelector(state => state);
   const dispatch = useDispatch();
@@ -30,6 +23,7 @@ const AddTask = props => {
 
   useEffect(async () => {
     dispatch(get_Users());
+    console.log(task);
   }, []);
 
   function formatDate(date) {
@@ -55,24 +49,19 @@ const AddTask = props => {
   const submitHandler = e => {
     // console.log(startDate.toString());
     // console.log(formatTime(startDate.toString().slice(17, 24)));
-    const task = {
+    console.log(task);
+
+    const updated_task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
       task_date: formatDate(startDate.toString()),
-      task_time: formatTime(startDate.toString().slice(17, 24)),
+      task_time: formatTime(startDate.toString().slice(11, 19)),
       is_completed: 0,
       time_zone: 530,
       task_msg: input
     };
-    // console.log(task);
+    console.log(startDate.toString().slice(11, 19));
 
-    dispatch(add_Task(task));
-  };
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date('2014-08-18T21:11:54')
-  );
-
-  const handleDateChange = date => {
-    setSelectedDate(date);
+    dispatch(edit_Task(updated_task, task.id));
   };
 
   return (
@@ -91,7 +80,6 @@ const AddTask = props => {
             <Button value={'Back'} />
           </Link>
           <div
-            className
             onClick={() => {
               submitHandler();
             }}
@@ -103,4 +91,4 @@ const AddTask = props => {
     </div>
   );
 };
-export default AddTask;
+export default EditTask;

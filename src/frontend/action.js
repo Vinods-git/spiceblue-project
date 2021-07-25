@@ -1,4 +1,10 @@
-import { getUsers, getAllTasks, addTask, deleteTask } from './httpCalls';
+import {
+  getUsers,
+  getAllTasks,
+  addTask,
+  deleteTask,
+  editTask
+} from './httpCalls';
 const get_Users = () => async dispatch => {
   try {
     dispatch({ type: 'GET_IDS_REQUEST' });
@@ -33,6 +39,17 @@ const add_Task = task => async dispatch => {
     dispatch({ type: 'ADDING_FAILED', payload: error });
   }
 };
+const edit_Task = (task,id) => async dispatch => {
+  try {
+    dispatch({ type: 'EDIT_REQUEST' });
+    const data = await editTask(task,id);
+    dispatch({ type: 'EDITED_SUCCESSFULLY', payload: data });
+  } catch (error) {
+    console.log(error);
+
+    dispatch({ type: 'EDITING_FAILED', payload: error });
+  }
+};
 const delete_Task = id => async dispatch => {
   try {
     dispatch({ type: 'DELETE_TASK_REQUEST' });
@@ -44,4 +61,11 @@ const delete_Task = id => async dispatch => {
   }
 };
 
-export { get_Users, add_Task, get_All_Tasks, update_Task, delete_Task };
+export {
+  get_Users,
+  add_Task,
+  get_All_Tasks,
+  update_Task,
+  delete_Task,
+  edit_Task
+};
