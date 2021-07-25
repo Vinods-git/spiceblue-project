@@ -35,10 +35,11 @@ export default function Task(props) {
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary={task_msg} secondary={task_date} />
-        <VisibilityIcon
-          className="view"
-          onClick={() => completeTaskHandler(id)}
-        />
+
+       
+          <Link className="edit" to={{ pathname: '/viewTask', task: props.task }}>
+           <VisibilityIcon className="view"/>
+        </Link>
 
         <Link className="edit" to={{ pathname: '/editTask', task: props.task }}>
           <EditIcon />

@@ -62,7 +62,6 @@ const EditTask = props => {
     console.log(startDate.toString().slice(16, 24));
 
     dispatch(edit_Task(updated_task, task.id));
-
   };
 
   return (
@@ -89,7 +88,6 @@ const EditTask = props => {
           </div>
         </div>
       </div>
-     if
     </div>
   );
 };
