@@ -68,7 +68,7 @@ const addTask = async task => {
 };
 
 const editTask = async (task, id) => {
-  console.log(task);
+  // console.log(task);
 
   axios({
     method: 'put',

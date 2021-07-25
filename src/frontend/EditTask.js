@@ -39,7 +39,7 @@ const EditTask = props => {
   function formatTime(hms) {
     // var hms = '02:04:33';   // your input string
     var a = hms.split(':'); // split it at the colons
-    console.log(hms);
+    // console.log(hms);
 
     // minutes are worth 60 seconds. Hours are worth 60 minutes.
     var seconds = +a[0] * 60 * 60 + +a[1] * 60 + +a[2];
@@ -49,7 +49,7 @@ const EditTask = props => {
   const submitHandler = e => {
     // console.log(startDate.toString());
     // console.log(formatTime(startDate.toString().slice(17, 24)));
-    console.log(task);
+    // console.log(task);
 
     const updated_task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
@@ -59,7 +59,7 @@ const EditTask = props => {
       time_zone: 530,
       task_msg: input
     };
-    console.log(startDate.toString().slice(16, 24));
+    // console.log(startDate.toString().slice(16, 24));
 
     dispatch(edit_Task(updated_task, task.id));
   };

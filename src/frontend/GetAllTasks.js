@@ -14,13 +14,10 @@ const GetAllTasks = props => {
     console.log('edit');
   };
   const deleteHandler = id => {
-    console.log(id);
+    // console.log(id);
     dispatch(delete_Task(id));
     // dispatch(get_All_Tasks());
     history.push('/');
-  };
-  const completeTaskHandler = id => {
-    console.log(id);
   };
 
   useEffect(async () => {
@@ -33,13 +30,7 @@ const GetAllTasks = props => {
       ) : (
         <ul className="task-list">
           {tasks?.map(task => (
-            <Task
-              key={task.id}
-              task={task}
-              editHandler={editHandler}
-              deleteHandler={deleteHandler}
-              completeTaskHandler={completeTaskHandler}
-            />
+            <Task key={task.id} task={task} deleteHandler={deleteHandler} />
           ))}
         </ul>
       )}

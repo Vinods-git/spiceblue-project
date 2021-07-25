@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Task(props) {
   const classes = useStyles();
-  const { editHandler, deleteHandler, completeTaskHandler } = props;
+  const {  deleteHandler, } = props;
 
   const { task_msg, task_date, id } = props.task;
   return (
