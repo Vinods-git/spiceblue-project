@@ -64,10 +64,9 @@ const addTask = async task => {
     }
   });
   // console.log(data);
-  return data;
 };
 const deleteTask = async id => {
-  const {data} = await axios({
+  axios({
     method: 'delete',
     url:
       ' https://stage.api.sloovi.com/task/lead_c1de2c7b9ab94cb9abad131b7294cd8' +
@@ -82,8 +81,7 @@ const deleteTask = async id => {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     }
-  })
-  return data
+  });
 };
 const getAllTasks = async task => {
   const { data } = await axios({
@@ -99,27 +97,9 @@ const getAllTasks = async task => {
       'Content-Type': 'application/json'
     }
   });
-  console.log(data);
+  // console.log(data);
 
   return data.results;
 };
 
-export { getUsers, getAllTasks, addTask,deleteTask };
-// .then(res => {
-//   token = res.data.results.token;
-//   c_id = res.data.results.company_id;
-//   axios({
-//     method: 'get',
-//     url: 'https://stage.api.sloovi.com/user?company_id=' + c_id,
-//     headers: {
-//       Authorization: 'Bearer ' + token,
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json'
-//     }
-//   }).then(res => {
-//     // console.log(res)
-//     comp_data = res.data.results.company_datas;
-//     console.log(comp_data);
-//     // console.log(comp_data);
-//   });
-// });
+export { getUsers, getAllTasks, addTask, deleteTask };

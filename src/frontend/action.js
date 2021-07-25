@@ -1,4 +1,4 @@
-import { getUsers, getAllTasks, addTask } from './httpCalls';
+import { getUsers, getAllTasks, addTask, deleteTask } from './httpCalls';
 const get_Users = () => async dispatch => {
   try {
     dispatch({ type: 'GET_IDS_REQUEST' });
@@ -15,7 +15,6 @@ const get_All_Tasks = () => async dispatch => {
   try {
     dispatch({ type: 'GET_ALL_TASKS_REQUEST' });
     const results = await getAllTasks();
-
     dispatch({ type: 'GET_ALL_TASKS_SUCCESS', payload: results });
   } catch (error) {
     console.log(error);
@@ -26,9 +25,9 @@ const get_All_Tasks = () => async dispatch => {
 const add_Task = task => async dispatch => {
   try {
     dispatch({ type: 'ADD_REQUEST' });
-    var data = await addTask(task);
+    await addTask(task);
     // console.log(data);
-    dispatch({ type: 'ADDED_SUCCESSFULLY', payload: data.status });
+    dispatch({ type: 'ADDED_SUCCESSFULLY', payload: task });
   } catch (error) {
     dispatch({ type: 'ADD_FAILED', payload: error });
   }
@@ -36,10 +35,10 @@ const add_Task = task => async dispatch => {
 const delete_Task = id => async dispatch => {
   try {
     dispatch({ type: 'DELETE_TASK_REQUEST' });
-    var status = await deleteTask(id);
-    console.log(data);
-    dispatch({ type: 'DELETE_TASK_SUCCESS', payload: data.status });
+    await deleteTask(id);
+    dispatch({ type: 'DELETE_TASK_SUCCESS', payload: id });
   } catch (error) {
+    console.log(e);
     dispatch({ type: 'DELETE_TASK_FAILED', payload: error });
   }
 };

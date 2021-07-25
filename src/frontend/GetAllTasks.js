@@ -16,7 +16,7 @@ const GetAllTasks = props => {
   const deleteHandler = id => {
     console.log(id);
     dispatch(delete_Task(id));
-    dispatch(get_All_Tasks());
+    // dispatch(get_All_Tasks());
     history.push('/');
   };
   const completeTaskHandler = id => {

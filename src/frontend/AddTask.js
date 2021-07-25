@@ -55,7 +55,6 @@ const AddTask = props => {
   const submitHandler = e => {
     // console.log(startDate.toString());
     // console.log(formatTime(startDate.toString().slice(17, 24)));
-
     const task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
       task_date: formatDate(startDate.toString()),
@@ -67,7 +66,6 @@ const AddTask = props => {
     // console.log(task);
 
     dispatch(add_Task(task));
-    history.push('/');
   };
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')
