@@ -9,7 +9,7 @@ const get_Users = () => async dispatch => {
   try {
     dispatch({ type: 'GET_IDS_REQUEST' });
     const data = await getUsers();
-    console.log(data);
+    // console.log(data);
 
     dispatch({ type: 'GET_IDS_SUCCESS', payload: data });
   } catch (error) {

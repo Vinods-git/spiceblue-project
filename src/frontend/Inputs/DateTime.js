@@ -42,6 +42,7 @@ export default function DateTime(props) {
           id="time-picker"
           label="Time"
           format="hh:mm:ss"
+          variant="inline"
           value={startDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{

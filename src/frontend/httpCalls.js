@@ -17,7 +17,7 @@ const getUsers = async () => {
   });
   token = data.results.token;
   c_id = data.results.company_id;
-  console.log(token);
+  // console.log(token);
 
   // console.log(c_id);
 

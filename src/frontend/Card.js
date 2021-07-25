@@ -6,12 +6,12 @@ import GetAllTasks from './GetAllTasks';
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 
 const Card = props => {
-  const count = useSelector(state => state.tasks?.length);
+  const state = useSelector(state => state);
   return (
     <Router>
       <div className="card-header">
         <b>
-          TASKS <label>{count}</label>
+          TASKS <label>{state.tasks?.length}</label>
         </b>
         <Link to="/addTask">
           <label className="add-task-symbol"> +</label>

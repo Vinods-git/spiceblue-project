@@ -1,13 +1,13 @@
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case 'GET_IDS_REQUEST':
-      return { loading: true, users: [] };
+      return { loading: true, users: [], tasks: [...state.tasks] };
     case 'GET_IDS_SUCCESS':
-      return { loading: false, users: action.payload };
+      return { loading: false, users: action.payload, tasks: [...state.tasks] };
     case 'GET_IDS_FAILED':
-      return { loading: false, error: action.payload };
+      return { loading: false, error: action.payload, tasks: [...state.tasks] };
     case 'ADD_REQUEST':
-      return { loading: true };
+      return { loading: true, tasks: [...state.tasks] };
     case 'ADDED_SUCCESSFULLY':
       return {
         ...state,

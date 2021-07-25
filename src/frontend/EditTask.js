@@ -12,7 +12,7 @@ import React from 'react';
 
 const EditTask = props => {
   const { task } = props.location;
-  const [startDate, setStartDate] = useState(task.task_date_time_in_utc);
+  const [startDate, setStartDate] = useState(task.task_date_time_in_utc_string);
   const [input, setInput] = useState(task.task_msg);
   const [id, setId] = useState('');
   const state = useSelector(state => state);
@@ -23,7 +23,6 @@ const EditTask = props => {
 
   useEffect(async () => {
     dispatch(get_Users());
-    console.log(task);
   }, []);
 
   function formatDate(date) {
@@ -40,6 +39,7 @@ const EditTask = props => {
   function formatTime(hms) {
     // var hms = '02:04:33';   // your input string
     var a = hms.split(':'); // split it at the colons
+    console.log(hms);
 
     // minutes are worth 60 seconds. Hours are worth 60 minutes.
     var seconds = +a[0] * 60 * 60 + +a[1] * 60 + +a[2];
@@ -54,12 +54,12 @@ const EditTask = props => {
     const updated_task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
       task_date: formatDate(startDate.toString()),
-      task_time: formatTime(startDate.toString().slice(11, 19)),
+      task_time: formatTime(startDate.toString().slice(16, 24)),
       is_completed: 0,
       time_zone: 530,
       task_msg: input
     };
-    console.log(startDate.toString().slice(11, 19));
+    console.log(startDate.toString().slice(16, 24));
 
     dispatch(edit_Task(updated_task, task.id));
   };
