@@ -8,7 +8,7 @@ import Button from '../inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 
-import React from 'react';
+
 
 const AddTask = props => {
   const [startDate, setStartDate] = useState(new Date());
