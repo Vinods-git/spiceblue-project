@@ -1,4 +1,4 @@
-const reducer = (state = {}, action) => {
+const reducer = (state = { tasks: [] }, action) => {
   switch (action.type) {
     case 'GET_IDS_REQUEST':
       return { loading: true, users: [], tasks: [...state.tasks] };
@@ -10,7 +10,7 @@ const reducer = (state = {}, action) => {
       return { loading: true, tasks: [...state.tasks] };
     case 'ADDED_SUCCESSFULLY':
       return {
-        ...state,
+        tasks: [...state.tasks, action.payload],
         loading: false
       };
     case 'ADDING_FAILED':

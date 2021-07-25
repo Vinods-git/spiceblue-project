@@ -12,6 +12,19 @@ p {
   height: 50px;
   border-bottom: 1px solid black;
 }
+.edit {
+  color: black;
+}
+.edit:hover {
+  color: black;
+}
+.delete {
+  cursor: pointer;
+}
+
+.view {
+  cursor: pointer;
+}
 
 .sidebar {
   position: fixed;

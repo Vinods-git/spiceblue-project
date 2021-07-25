@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import AddTask from './AddTask';
 import EditTask from './EditTask';
+import Alert from './Alert';
 import GetAllTasks from './GetAllTasks';
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
 
 const Card = props => {
   const state = useSelector(state => state);
+  const [length, setLength] = useState(0);
+  const [flag, setFlag] = useState(0);
+  useEffect(() => {
+    if (length < state.tasks?.length) setFlag(1);
+    setLength(state.tasks?.length);
+  }, [state.tasks?.length]);
   return (
     <Router>
       <div className="card-header">
@@ -16,6 +23,8 @@ const Card = props => {
         <Link to="/addTask">
           <label className="add-task-symbol"> +</label>
         </Link>
+        {flag ? <Alert /> : <></>}
+        );
       </div>
 
       <Route exact path="/" component={GetAllTasks} />

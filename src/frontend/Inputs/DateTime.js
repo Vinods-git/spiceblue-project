@@ -41,7 +41,7 @@ export default function DateTime(props) {
           margin="normal"
           id="time-picker"
           label="Time"
-          format="hh:mm:ss"
+          format="hh:mm:ss a"
           variant="inline"
           value={startDate}
           onChange={handleDateChange}

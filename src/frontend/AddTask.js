@@ -8,6 +8,7 @@ import Input from './Inputs/Input';
 import Button from './Inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
+
 import React from 'react';
 import { alpha } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -25,7 +26,7 @@ const AddTask = props => {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   const { loading, users } = state;
-
+  var count = 0;
   const history = useHistory();
 
   useEffect(async () => {
@@ -66,6 +67,7 @@ const AddTask = props => {
     // console.log(task);
 
     dispatch(add_Task(task));
+    count++;
   };
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')
@@ -87,11 +89,10 @@ const AddTask = props => {
         <Select users={users} id={id} setId={setId} />
 
         <div className="button-box">
-          <Link className='back' to="/">
+          <Link className="back" to="/">
             <Button value={'Back'} />
           </Link>
           <div
-            className
             onClick={() => {
               submitHandler();
             }}
@@ -100,6 +101,7 @@ const AddTask = props => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

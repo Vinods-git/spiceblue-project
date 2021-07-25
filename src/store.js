@@ -4,7 +4,7 @@ import reducer from './frontend/reducer';
 
 const composeEnhacer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const initialState = { key: 'value' };
+const initialState = { tasks: [] };
 
 const store = createStore(
   reducer,

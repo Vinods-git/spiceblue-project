@@ -12,6 +12,7 @@ import Divider from '@material-ui/core/Divider';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 import EditIcon from '@material-ui/icons/Edit';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -34,13 +35,19 @@ export default function Task(props) {
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary={task_msg} secondary={task_date} />
-        <Link to={{pathname:"/editTask",
-      task:props.task}} >
+        <VisibilityIcon
+          className="view"
+          onClick={() => completeTaskHandler(id)}
+        />
+
+        <Link className="edit" to={{ pathname: '/editTask', task: props.task }}>
           <EditIcon />
         </Link>
 
-        <DoneRoundedIcon onClick={() => completeTaskHandler(id)} />
-        <DeleteRoundedIcon onClick={() => deleteHandler(id)} />
+        <DeleteRoundedIcon
+          className="delete"
+          onClick={() => deleteHandler(id)}
+        />
       </ListItem>
       <Divider variant="inset" component="li" />
     </>
