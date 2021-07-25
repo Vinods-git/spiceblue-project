@@ -15,6 +15,18 @@ const reducer = (state = { tasks: [] }, action) => {
       };
     case 'ADDING_FAILED':
       return { ...state, loading: false };
+    case 'EDIT_REQUEST':
+      return { loading: true, tasks: [...state.tasks] };
+    case 'EDITED_SUCCESSFULLY':
+      return {
+        tasks: [action.payload.data,
+          ...state.tasks.filter(task => task.id != action.payload.id),
+          
+        ],
+        loading: false
+      };
+    case 'EDITING_FAILED':
+      return { ...state, loading: false };
     case 'GET_ALL_TASKS_REQUEST':
       return { loading: true };
     case 'GET_ALL_TASKS_SUCCESS':

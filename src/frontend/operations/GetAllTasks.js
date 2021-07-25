@@ -12,11 +12,27 @@ const GetAllTasks = props => {
   const editHandler = id => {
     console.log('edit');
   };
+
+  function getConfirmation(id) {
+    var retVal = confirm('Do you want to continue ?');
+    if (retVal == true) {
+      document.write('User wants to continue!');
+      return true;
+    } else {
+      document.write('User does not want to continue!');
+      return false;
+    }
+  }
   const deleteHandler = id => {
     // console.log(id);
-    dispatch(delete_Task(id));
+    var retVal = confirm('Are sure you want to delete the task ?');
+    if (retVal == true) {
+      dispatch(delete_Task(id));
+      history.push('/');
+      alert('Task has been deleted');
+    }
+
     // dispatch(get_All_Tasks());
-    history.push('/');
   };
 
   useEffect(async () => {

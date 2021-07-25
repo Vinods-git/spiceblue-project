@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { get_Users, add_Task } from './action';
-import DateTime from './inputs/DateTime';
+import { get_Users, add_Task } from '../action';
+import DateTime from '../inputs/DateTime';
 import { Link, useHistory } from 'react-router-dom';
-import Select from './inputs/Select';
-import Input from './inputs/Input';
-import Button from './inputs/Button';
+import Select from '../inputs/Select';
+import Input from '../inputs/Input';
+import Button from '../inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 
@@ -57,7 +57,7 @@ const AddTask = props => {
     // console.log(task);
 
     dispatch(add_Task(task));
-    count++;
+    alert('Task has been added successfully');
   };
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')

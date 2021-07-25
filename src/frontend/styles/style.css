@@ -21,6 +21,9 @@ p {
 .delete {
   cursor: pointer;
 }
+.delete:hover {
+  color: red;
+}
 
 .view {
   cursor: pointer;

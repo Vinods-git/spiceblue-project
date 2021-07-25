@@ -5,7 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import { Link } from 'react-router-dom';
-import Button from './Inputs/Button';
+import Button from '../inputs/Button';
 // import React from 'react';
 // const ViewTask = props => {
 //   const { task } = props.location;
@@ -25,7 +25,7 @@ function ListItemLink(props) {
 
 const ViewTask = props => {
   const { task } = props.location;
-  console.log(task);
+  // console.log(task);
   const classes = useStyles();
 
   return (

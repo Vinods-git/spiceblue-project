@@ -12,6 +12,7 @@ export default function App() {
       <div className="container">
         <div className="card">
           <Card />
+
           <ul className="list-group list-group-flush" />
         </div>
       </div>

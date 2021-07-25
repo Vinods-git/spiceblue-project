@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { get_Users, edit_Task } from './action';
-import DateTime from './inputs/DateTime';
+import { get_Users, edit_Task } from '../action';
+import DateTime from '../inputs/DateTime';
 import { Link, useHistory } from 'react-router-dom';
-import Select from './inputs/Select';
-import Input from './inputs/Input';
-import Button from './inputs/Button';
+import Select from '../inputs/Select';
+import Input from '../inputs/Input';
+import Button from '../inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 import React from 'react';
@@ -54,14 +54,15 @@ const EditTask = props => {
     const updated_task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
       task_date: formatDate(startDate.toString()),
-      task_time: formatTime(startDate.toString().slice(16, 24)),
+      task_time: formatTime(startDate.toString().slice(11)),
       is_completed: 0,
       time_zone: 530,
       task_msg: input
     };
-    // console.log(startDate.toString().slice(16, 24));
+    // console.log(startDate.toString());
 
     dispatch(edit_Task(updated_task, task.id));
+    alert('Task has been edited successfully');
   };
 
   return (

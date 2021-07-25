@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Task(props) {
   const classes = useStyles();
-  const {  deleteHandler, } = props;
+  const { deleteHandler } = props;
 
   const { task_msg, task_date, id } = props.task;
   return (
@@ -35,9 +35,8 @@ export default function Task(props) {
         </ListItemAvatar>
         <ListItemText primary={task_msg} secondary={task_date} />
 
-       
-          <Link className="edit" to={{ pathname: '/viewTask', task: props.task }}>
-           <VisibilityIcon className="view"/>
+        <Link className="edit" to={{ pathname: '/viewTask', task: props.task }}>
+          <VisibilityIcon className="view" />
         </Link>
 
         <Link className="edit" to={{ pathname: '/editTask', task: props.task }}>
