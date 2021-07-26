@@ -45,13 +45,10 @@ const EditTask = props => {
     var seconds = +a[0] * 60 * 60 + +a[1] * 60 + +a[2];
     return seconds;
   }
-
-  const submitHandler = e => {
+const submitHandler = e => {
     // console.log(startDate.toString());
     // console.log(formatTime(startDate.toString().slice(17, 24)));
-    // console.log(task);
-
-    const updated_task = {
+    const task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
       task_date: formatDate(startDate.toString()),
       task_time: formatTime(startDate.toString().slice(17, 24)),
@@ -59,15 +56,21 @@ const EditTask = props => {
       time_zone: 530,
       task_msg: input
     };
-    // console.log(formatTime(startDate.toString().slice(17, 24)), formatDate(startDate.toString()),);
-//     console.log(startDate.toString(), ' in submit handler');
+    // console.log(
+    //   formatTime(startDate.toString().slice(17, 24)),
+    //   formatDate(startDate.toString())
+    // );
     if (input == "") {
-      alert("Task name must be filled out");
+      alert("Name must be filled out");
     }
     else{  
       dispatch(edit_Task(updated_task, task.id));
     alert('Task has been edited successfully');
         }
+  
+  };
+ 
+    
     
   };
 
