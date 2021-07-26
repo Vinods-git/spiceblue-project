@@ -19,9 +19,9 @@ const reducer = (state = { tasks: [] }, action) => {
       return { loading: true, tasks: [...state.tasks] };
     case 'EDITED_SUCCESSFULLY':
       return {
-        tasks: [action.payload.data,
-          ...state.tasks.filter(task => task.id != action.payload.id),
-          
+        tasks: [
+          action.payload.data,
+          ...state.tasks.filter(task => task.id != action.payload.id)
         ],
         loading: false
       };
