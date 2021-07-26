@@ -8,8 +8,6 @@ import Button from '../inputs/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import 'date-fns';
 
-
-
 const AddTask = props => {
   const [startDate, setStartDate] = useState(new Date());
   const [input, setInput] = useState('');
@@ -54,7 +52,10 @@ const AddTask = props => {
       time_zone: 530,
       task_msg: input
     };
-    // console.log(task);
+    // console.log(
+    //   formatTime(startDate.toString().slice(17, 24)),
+    //   formatDate(startDate.toString())
+    // );
 
     dispatch(add_Task(task));
     alert('Task has been added successfully');

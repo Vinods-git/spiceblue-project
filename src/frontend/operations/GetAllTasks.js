@@ -9,20 +9,7 @@ const GetAllTasks = props => {
   const dispatch = useDispatch();
   const { loading, tasks, error } = state;
   const history = useHistory();
-  const editHandler = id => {
-    console.log('edit');
-  };
 
-  function getConfirmation(id) {
-    var retVal = confirm('Do you want to continue ?');
-    if (retVal == true) {
-      document.write('User wants to continue!');
-      return true;
-    } else {
-      document.write('User does not want to continue!');
-      return false;
-    }
-  }
   const deleteHandler = id => {
     // console.log(id);
     var retVal = confirm('Are sure you want to delete the task ?');
@@ -37,6 +24,7 @@ const GetAllTasks = props => {
 
   useEffect(async () => {
     dispatch(get_All_Tasks());
+    // console.log(tasks);
   }, []);
   return (
     <>

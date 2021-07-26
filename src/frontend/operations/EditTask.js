@@ -20,6 +20,8 @@ const EditTask = props => {
   const history = useHistory();
 
   useEffect(async () => {
+    // console.log(startDate.toString(), 'after first time loading');
+
     dispatch(get_Users());
   }, []);
 
@@ -37,7 +39,7 @@ const EditTask = props => {
   function formatTime(hms) {
     // var hms = '02:04:33';   // your input string
     var a = hms.split(':'); // split it at the colons
-    // console.log(hms);
+    // console.log(hms, 'in format time');
 
     // minutes are worth 60 seconds. Hours are worth 60 minutes.
     var seconds = +a[0] * 60 * 60 + +a[1] * 60 + +a[2];
@@ -52,12 +54,13 @@ const EditTask = props => {
     const updated_task = {
       assigned_user: 'user_41c1d48564a8435d815643996d9a388f',
       task_date: formatDate(startDate.toString()),
-      task_time: formatTime(startDate.toString().slice(11)),
+      task_time: formatTime(startDate.toString().slice(17, 24)),
       is_completed: 0,
       time_zone: 530,
       task_msg: input
     };
-    // console.log(startDate.toString());
+    // console.log(formatTime(startDate.toString().slice(17, 24)), formatDate(startDate.toString()),);
+    console.log(startDate.toString(), ' in submit handler');
 
     dispatch(edit_Task(updated_task, task.id));
     alert('Task has been edited successfully');
