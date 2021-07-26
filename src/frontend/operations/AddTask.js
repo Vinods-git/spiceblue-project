@@ -53,7 +53,7 @@ const AddTask = props => {
       task_msg: input
     };
     // console.log(
-    //   formatTime(startDate.toString().slice(17, 24)),
+      formatTime(startDate.toString().slice(17, 24)),
     //   formatDate(startDate.toString())
     // );
 
