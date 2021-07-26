@@ -58,7 +58,7 @@ const AddTask = props => {
     // );
 
        if (input == "") {
-      alert("Name must be filled out");
+      alert("Task name must be filled out");
     }
     else{  dispatch(add_Task(task));
       alert('Task has been added successfully');}
