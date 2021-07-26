@@ -61,9 +61,12 @@ const EditTask = props => {
     };
     // console.log(formatTime(startDate.toString().slice(17, 24)), formatDate(startDate.toString()),);
     console.log(startDate.toString(), ' in submit handler');
-
-    dispatch(edit_Task(updated_task, task.id));
-    alert('Task has been edited successfully');
+    if (input == "") {
+      alert("Name must be filled out");
+    }
+    else{  dispatch(edit_Task(updated_task, task.id));
+    alert('Task has been edited successfully');}
+    
   };
 
   return (
