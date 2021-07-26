@@ -60,12 +60,14 @@ const EditTask = props => {
       task_msg: input
     };
     // console.log(formatTime(startDate.toString().slice(17, 24)), formatDate(startDate.toString()),);
-    console.log(startDate.toString(), ' in submit handler');
+//     console.log(startDate.toString(), ' in submit handler');
     if (input == "") {
-      alert("Name must be filled out");
+      alert("Task name must be filled out");
     }
-    else{  dispatch(edit_Task(updated_task, task.id));
-    alert('Task has been edited successfully');}
+    else{  
+      dispatch(edit_Task(updated_task, task.id));
+    alert('Task has been edited successfully');
+        }
     
   };
 
