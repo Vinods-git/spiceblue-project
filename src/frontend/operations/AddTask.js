@@ -57,8 +57,11 @@ const AddTask = props => {
     //   formatDate(startDate.toString())
     // );
 
-    dispatch(add_Task(task));
-    alert('Task has been added successfully');
+       if (input == "") {
+      alert("Name must be filled out");
+    }
+    else{  dispatch(add_Task(task));
+      alert('Task has been added successfully');}
   };
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')
