@@ -41,7 +41,7 @@ const AddTask = props => {
     return seconds;
   }
 
-  const submitHandler = e => {
+const submitHandler = e => {
     // console.log(startDate.toString());
     // console.log(formatTime(startDate.toString().slice(17, 24)));
     const task = {
@@ -53,15 +53,15 @@ const AddTask = props => {
       task_msg: input
     };
     // console.log(
-      formatTime(startDate.toString().slice(17, 24)),
+    //   formatTime(startDate.toString().slice(17, 24)),
     //   formatDate(startDate.toString())
     // );
-
-       if (input == "") {
-      alert("Task name must be filled out");
+    if (input == "") {
+      alert("Name must be filled out");
     }
     else{  dispatch(add_Task(task));
       alert('Task has been added successfully');}
+  
   };
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')
